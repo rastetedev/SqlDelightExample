@@ -1,0 +1,28 @@
+CREATE TABLE category (
+    id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL
+);
+
+insertCategory:
+INSERT OR REPLACE INTO category
+VALUES (?,?);
+
+deleteCategory:
+DELETE FROM category
+WHERE id = ?;
+
+getAllCategories:
+SELECT *
+FROM category;
+
+
+INSERT OR REPLACE INTO category
+VALUES (1, "Categoria 1");
+
+INSERT OR REPLACE INTO category
+VALUES (2, "Categoria 2");
+
+INSERT OR REPLACE INTO category
+VALUES (3, "Categoria 3");
+
+

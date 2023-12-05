@@ -1,0 +1,29 @@
+import kotlin.Boolean;
+import kotlin.Int;
+
+CREATE TABLE product (
+    id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    stock INTEGER AS Int NOT NULL,
+    price REAL NOT NULL,
+    isActive INTEGER AS Boolean DEFAULT 0,
+    category_id INTEGER NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE
+);
+
+insertOrReplaceProduct:
+INSERT OR REPLACE INTO product
+VALUES ?;
+
+deleteProduct:
+DELETE FROM product
+WHERE id = ?;
+
+getProductsSummary:
+SELECT id, name, price
+FROM product;
+
+getProduct:
+SELECT *
+FROM product
+WHERE id = ?;
